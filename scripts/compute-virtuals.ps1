@@ -72,10 +72,10 @@ if (-not $msarch) {
     throw "no suitable MS arch available"
 }
 
-Write-Output "::set-output name=vs::$vs"
-Write-Output "::set-output name=vsnum::$vsnum"
-Write-Output "::set-output name=vsyear::$vsyear"
-Write-Output "::set-output name=toolset:$toolset"
-Write-Output "::set-output name=msts::$msts"
-Write-Output "::set-output name=msarch::$msarch"
-Write-Output "::set-output name=winsdk::$winsdk"
+echo "name=vs::$vs" >> $env:GITHUB_OUTPUT
+echo "name=vsnum::$vsnum" >> $env:GITHUB_OUTPUT
+echo "name=vsyear::$vsyear" >> $env:GITHUB_OUTPUT
+echo "name=toolset:$toolset" >> $env:GITHUB_OUTPUT
+echo "name=msts::$msts" >> $env:GITHUB_OUTPUT
+echo "name=msarch::$msarch" >> $env:GITHUB_OUTPUT
+echo "name=winsdk::$winsdk" >> $env:GITHUB_OUTPUT
