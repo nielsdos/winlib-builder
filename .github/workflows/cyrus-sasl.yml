@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: cyrus-sasl
-          repository: winlibs/cyrus-sasl
+          repository: nielsdos/cyrus-sasl-php
           ref: ${{github.event.inputs.version}}
       - name: Compute virtual inputs
         id: virtuals
