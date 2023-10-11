@@ -31,7 +31,7 @@ if (-not $deps) {
 }
 
 $needs = @{}
-$response = Invoke-WebRequest "https://windows.php.net/downloads/php-sdk/deps/series/packages-$version-$vs-$arch-$stability.txt"
+$response = Invoke-WebRequest "https://nielsdos.github.io/series/packages-$version-$vs-$arch-$stability.txt"
 foreach ($line in $response.Content -split "`r`n") {
     foreach ($dep in $deps) {
         if ($line -match "$dep-(.+)-$vs-$arch.zip") {
@@ -42,7 +42,7 @@ foreach ($line in $response.Content -split "`r`n") {
 
 New-Item "deps" -ItemType "directory"
 
-$baseurl = "https://windows.php.net/downloads/php-sdk/deps/$vs/$arch"
+$baseurl = "https://nielsdos.github.io/$vs/$arch"
 foreach ($dep in $needs.GetEnumerator()) {
     Write-Output "Fetching $($dep.Name)-$($dep.Value)"
     $temp = New-TemporaryFile | Rename-Item -NewName {$_.Name + ".zip"} -PassThru
